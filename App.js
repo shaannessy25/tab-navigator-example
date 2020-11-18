@@ -40,7 +40,28 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+
+            if (route.name === 'Home') {
+              iconName = focused ? 'ios-home' : 'ios-home';
+            } else if (route.name === 'Settings') {
+              iconName = focused ? 'ios-settings' : 'ios-settings';
+            } else if (route.name === 'Profile') {
+              iconName = focused ? 'ios-person' : 'ios-person'
+            }
+
+            // You can return any component that you like here!
+            return <Ionicons name={iconName} size={32} color={color} />;
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: 'tomato',
+          inactiveTintColor: 'gray',
+        }}
+      >
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
