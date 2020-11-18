@@ -1,14 +1,19 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from 'react-native-vector-icons';
+
+
+
 function HomeScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', flexDirection: 'column', }}>
-      <Text>Home</Text>
-      <Ionicons name="ios-add-circle-outline" size={32} />
-    </View>
+    <SafeAreaView style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center', }}>
+      <Ionicons name="ios-home" size={32} /> 
+      <Text style={{ fontSize: 32 }}>Home</Text>
+
+
+    </SafeAreaView>
   );
 }
 
@@ -16,6 +21,7 @@ function SettingsScreen() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Settings!</Text>
+      <Ionicons name="ios-settings" size={32} />
     </View>
   );
 }
@@ -24,6 +30,7 @@ function ProfileScreen() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Profile!</Text>
+      <Ionicons name="ios-person" size={32} />
     </View>
   );
 }
